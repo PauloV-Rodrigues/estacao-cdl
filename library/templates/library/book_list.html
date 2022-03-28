@@ -1,0 +1,40 @@
+{% extends 'library/base.html' %}
+
+{% block title %} Home | Estação CDL {% endblock %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/home.css' %}" media="screen">
+<section class="u-align-center u-clearfix u-image u-shading u-section-1" src="" data-image-width="1620" data-image-height="1080" id="sec-206f">
+    <div class="u-absolute-hcenter u-custom-color-1 u-expanded u-opacity u-opacity-60 u-shape u-shape-rectangle"></div>
+    <h1 class="u-align-left u-custom-font u-text u-text-default u-title u-text-1">Bem vindo(a) à<br>Estação CDL!
+    </h1>
+    <p class="u-align-justify u-large-text u-text u-text-variant u-text-2">Estação CDL é uma Biblioteca Virtual — desenvolvida em Python (Django), HTML, CSS, JS e MySQL — onde você encontra informações sobre variados livros, 
+      desde Literatura Estrangeira à Programação. Estação CDL é resultado da Avaliação I do Projeto Integrado II 
+      na Faculdade de Tecnologia CDL de Fortaleza — Desenvolvida pelo Graduando Paulo Victor Souza Rodrigues.</p>
+  </section>
+
+  <section class="u-clearfix u-section-2" id="sec-0bd5">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <h3 class="u-custom-font u-text u-text-default u-text-1">Acervo Digital</h3>
+      <p class="u-custom-font u-font-raleway u-text u-text-default u-text-2">Confira nosso acervo digital e descubra inúmeras obras!</p>     
+      <div class="u-expanded-width u-list u-list-1">
+        
+        
+        <div class="u-repeater u-repeater-1">
+          {% for book in book_list %}
+          <div class="u-container-style u-custom-item u-image u-image-round u-list-item u-radius-50 u-repeater-item u-shading u-image-1" data-image-width="348" data-image-height="499">
+            <div class="u-container-layout u-similar-container u-container-layout-1">
+              <a href="{{ book.get_absolute_url }}"><img src="{{ book.cover.url }}" alt="" id="image_cover_paulo"></a>
+              <h3 class="u-text u-text-default u-text-3"><a href="{{ book.get_absolute_url }}">{{ book.title }}</a></h3>
+              <p class="u-text u-text-4"> {{ book.body|linebreaks|truncatewords:18 }} </p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        
+      </div>
+    </div>
+</section>
+{% endblock %}
