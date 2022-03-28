@@ -10,7 +10,7 @@ antes de realizar a compra.
  - [Tecnologias](#Tecnologias)
  - [Features](#Features)
  - [Telas](#Telas)
- - [Contato](#Contato)
+ - [Contato](#Contato-1)
 
 
 # Tecnologias
